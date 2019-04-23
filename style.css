@@ -1,0 +1,249 @@
+@font-face {
+  font-family: "Chicago";
+  src: url("fonts/Chicago.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(129, 129, 129);
+  font-family: "Chicago";
+  font-size: 14px;
+  height: 100%;
+  overflow: hidden;
+}
+
+main {
+  height: calc(100% - 86px);
+  margin: 30px;
+  position: relative;
+}
+
+
+/***********
+MENU BAR 
+***********/
+
+nav {
+  background-color: rgb(248, 248, 248);
+  border-bottom: 2px solid #000;
+  margin-bottom: 5px;
+}
+
+nav * {
+  margin: 0 0 0 7px;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 3px 7px;
+}
+
+nav ul li:active {
+  color: rgb(248, 248, 248);
+  background-color: #000;
+}
+
+.clock {
+  margin-left: auto;
+  margin-right: 7px;
+}
+
+
+/***********
+ICONS 
+***********/
+
+.icon {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 200;
+  display: inline-block;
+}
+
+.icon img {
+  display: block;
+  margin: 0 auto;
+  width: 45px;
+}
+
+.icon p {
+  margin-top: 3px;
+  padding: 2px;
+  background-color: rgb(248, 248, 248);
+  display: inline-block;
+  font-family: arial;
+  font-weight: 100;
+}
+
+.selected p {
+  background-color: #000;
+  color: rgb(248, 248, 248);
+}
+
+.selected img {
+  filter: brightness(0.4);
+}
+
+.HD {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.trash {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/**************
+FINDER WINDOWS 
+**************/
+
+.finder-window {
+  width: 699px;
+  height: 371px;
+  background-color: rgb(248, 248, 248);
+  position: absolute;
+  border: 1px solid rgb(51, 51, 51);
+  top: 150px;
+  left: 250px;
+}
+
+.titlebar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-color: rgb(238, 238, 238);
+  padding: 3px 2px 2px 2px;
+  border-bottom: 2px solid rgb(51, 51, 51);
+}
+
+.titlebar hr {
+  border: none;
+  margin: 1px 3px;
+  border-top: 1px solid rgb(148, 148, 148);
+}
+
+.close-container {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  width: 13px;
+  height: 13px;
+  background-color: rgb(58, 58, 58);
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.close-box-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(58, 58, 58);
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.close-box-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  background-color: rgb(148, 148, 148);
+  border-right: 1px solid rgb(58, 58, 58);
+  border-bottom: 1px solid rgb(58, 58, 58);
+}
+
+.finder-window p {
+  text-align: center;
+  /* left: calc(50% - 48px); */
+  font-size: 12px;
+  background-color: rgb(238, 238, 238);
+  padding: 2px 4px 0 4px;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+.finder-window [data-handle] {
+  position: absolute;
+}
+
+.finder-window [data-handle="top"],
+.finder-window [data-handle="bottom"] {
+  height: 5px;
+  width: 100%;
+  cursor: row-resize;
+}
+
+.finder-window [data-handle="left"],
+.finder-window [data-handle="right"] {
+  height: 100%;
+  width: 5px;
+  cursor: col-resize;
+}
+
+.finder-window [data-handle="top"] {
+  top: -3px;
+}
+
+.finder-window [data-handle="bottom"] {
+  bottom: -3px;
+}
+
+.finder-window [data-handle="left"] {
+  left: -3px;
+}
+
+.finder-window [data-handle="right"] {
+  right: -3px;
+}
+
+.finder-window [data-handle="top-left"],
+.finder-window [data-handle="top-right"],
+.finder-window [data-handle="bottom-left"],
+.finder-window [data-handle="bottom-right"] {
+  width: 8px;
+  height: 8px;
+}
+
+.finder-window [data-handle="top-left"] {
+  top: -3px;
+  left: -3px;
+  cursor: nwse-resize;
+}
+
+.finder-window [data-handle="top-right"] {
+  top: -3px;
+  right: -3px;
+  cursor: nesw-resize;
+}
+
+.finder-window [data-handle="bottom-left"] {
+  bottom: -3px;
+  left: -3px;
+  cursor: nesw-resize;
+}
+
+.finder-window [data-handle="bottom-right"] {
+  bottom: -3px;
+  right: -3px;
+  cursor: nwse-resize;
+}
