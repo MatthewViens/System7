@@ -6,7 +6,7 @@ function createWindow(name) {
   const minHeight   = 200;
   
   mainWindow.innerHTML = `
-      <div class="titlebar">
+      <div class="titlebar drag-handle">
         <hr><hr><hr><hr><hr><hr>
         <div class="close-container">
           <div class="close-box-1">
@@ -22,6 +22,7 @@ function createWindow(name) {
   addListenersToTrapdoor();
   addListenersToTitleBar();
   
+  makeDraggable(mainWindow);
   return mainWindow;
   
   function createHandles() {
@@ -66,7 +67,7 @@ function createWindow(name) {
     originalWidth   = mainWindow.getBoundingClientRect().width;
     originalHeight  = mainWindow.getBoundingClientRect().height;
     originalTop     = mainWindow.getBoundingClientRect().top;
-    originalBottom  = mainWindow.getBoundingClientRect().bottom;
+    // originalBottom  = mainWindow.getBoundingClientRect().bottom;
     originalLeft    = mainWindow.getBoundingClientRect().left;
     switch(handle) {
       case 'top':
