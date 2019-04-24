@@ -4,7 +4,6 @@ let icons   = document.querySelectorAll(".icon");
 
 document.addEventListener("click", function(e) {
   if(e.target.tagName === "IMG") {
-    console.log('clicked');
     for(let i = 0; i < icons.length; i++) {
       icons[i].classList.remove("selected");
     }
@@ -51,4 +50,3 @@ function setClock() {
     return (i < 10) ? "0" + i : i;
   }
 }
-
