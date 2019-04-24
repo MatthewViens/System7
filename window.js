@@ -2,8 +2,8 @@ function createWindow(name) {
   const sides       = ['top', 'left', 'bottom', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right' ];
   const mainWindow  = document.createElement('div');
   const handles     = [];
-  const minWidth    = 50;
-  const minHeight   = 50;
+  const minWidth    = 200;
+  const minHeight   = 200;
   
   mainWindow.innerHTML = `
       <div class="titlebar">
@@ -98,45 +98,77 @@ function createWindow(name) {
   }
   
   function resizeTop(e) {
-    mainWindow.style.top = e.pageY - 56.4;
-    mainWindow.style.height = originalHeight + (originalTop - e.pageY);
+    let height = originalHeight + (originalTop - e.pageY)
+    if(height > minHeight) {
+      mainWindow.style.top = e.pageY - 56.4;
+      mainWindow.style.height = height;
+    }
   }
 
   function resizeBottom(e) {
-    mainWindow.style.height = e.pageY - originalTop;
+    let height = e.pageY - originalTop;
+    if(height > minHeight) {
+      mainWindow.style.height = height;
+    }
   }
 
   function resizeLeft(e) {
-    mainWindow.style.left = e.pageX - 30;
-    mainWindow.style.width = originalWidth + (originalLeft - e.pageX);
+    let width = originalWidth + (originalLeft - e.pageX);
+    if(width > minWidth) {
+      mainWindow.style.left = e.pageX - 30;
+      mainWindow.style.width = width;
+    }
   }
 
   function resizeRight(e) {
-    mainWindow.style.width = e.pageX - originalLeft;
+    let width = e.pageX - originalLeft;
+    if(width > minWidth) {
+      mainWindow.style.width = width;
+    }
   }
   
   function resizeTopLeft(e) {
-    mainWindow.style.left = e.pageX - 30;
-    mainWindow.style.width = originalWidth + (originalLeft - e.pageX);
-    mainWindow.style.top = e.pageY - 55;
-    mainWindow.style.height = originalHeight + (originalTop - e.pageY);
+    let height = originalHeight + (originalTop - e.pageY);
+    let width = originalWidth + (originalLeft - e.pageX);
+    if(height > minHeight) {
+      mainWindow.style.top = e.pageY - 55;
+      mainWindow.style.height = height;
+    }
+    if(width > minWidth) {
+      mainWindow.style.left = e.pageX - 30;
+      mainWindow.style.width = width;
+    }
   }
   
   function resizeTopRight(e) {
-    mainWindow.style.width = e.pageX - originalLeft;
-    mainWindow.style.top = e.pageY - 55;
-    mainWindow.style.height = originalHeight + (originalTop - e.pageY);
+    let height = originalHeight + (originalTop - e.pageY);
+    let width = e.pageX - originalLeft;
+    if(height > minHeight) {
+      mainWindow.style.top = e.pageY - 55;
+      mainWindow.style.height = height;
+    }
+    if(width > minWidth) {
+      mainWindow.style.width = width;
+    }
   }
   
   function resizeBottomLeft(e) {
-    mainWindow.style.left = e.pageX - 30;
-    mainWindow.style.width = originalWidth + (originalLeft - e.pageX);
-    mainWindow.style.height = e.pageY - originalTop;
+    let height = e.pageY - originalTop;
+    let width = originalWidth + (originalLeft - e.pageX);
+    if(height > minHeight) {
+      mainWindow.style.height = e.pageY - originalTop;
+    }
+    if(width > minWidth) {
+      mainWindow.style.left = e.pageX - 30;
+      mainWindow.style.width = originalWidth + (originalLeft - e.pageX);
+    }
   }
   
   function resizeBottomRight(e) {
-    mainWindow.style.width = e.pageX - originalLeft;
-    mainWindow.style.height = e.pageY - originalTop;
+    let height = e.pageY - originalTop;
+    let width = e.pageX - originalLeft;
+    mainWindow.style.width = width;
+    mainWindow.style.height = height;
   }
 
   function stopResize() {

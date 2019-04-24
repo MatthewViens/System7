@@ -5,6 +5,8 @@
 
 * {
   box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
 }
 
 body {

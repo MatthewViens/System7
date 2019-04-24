@@ -31,7 +31,7 @@ function setClock() {
   let ampm;
   let datetime  = new Date();
   let hours     = datetime.getHours();
-  let minutes   = datetime.getMinutes();
+  let minutes   = checkTime(datetime.getMinutes());
 
   if(hours > 12) {
     hours -= 12;
@@ -46,5 +46,9 @@ function setClock() {
   }
   
   clock.textContent = `${hours}:${minutes} ${ampm}`;
+  
+  function checkTime(i) {
+    return (i < 10) ? "0" + i : i;
+  }
 }
 
