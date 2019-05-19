@@ -1,6 +1,9 @@
 const main  = document.querySelector("main");
 const clock = document.querySelector(".clock");
 let icons   = document.querySelectorAll(".icon");
+const dropdown = document.querySelector('.dropdown');
+const file = document.getElementById('file');
+const fileNew = document.getElementById('file-new');
 
 document.addEventListener("click", function(e) {
   if(e.target.tagName === "IMG") {
@@ -50,3 +53,16 @@ function setClock() {
     return (i < 10) ? "0" + i : i;
   }
 }
+
+document.addEventListener('click', function(e) {
+  if(e.target === file) {
+    dropdown.style.visibility = 'visible';
+  } else {
+    dropdown.style.visibility = 'hidden';
+  }
+});
+
+fileNew.addEventListener('click', function() {
+  let newFinderWindow = createWindow('Macintosh HD');
+  main.appendChild(newFinderWindow);
+});

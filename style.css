@@ -65,6 +65,7 @@ li:active {
   left: 14px;
   margin-top: 3px;
   border: 2px solid #000;
+  visibility: hidden;
 }
 
 .dropdown li {
@@ -93,6 +94,7 @@ ICONS
   font-size: 11px;
   font-weight: 200;
   display: inline-block;
+  margin: 20px;
 }
 
 .icon img {
