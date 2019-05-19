@@ -1,28 +1,23 @@
 function makeDraggable(element) {
   const dragHandle  = element.querySelector('.drag-handle');
-  let xOffset       = 0;
-  let yOffset       = 0;
-  let currentX;
-  let currentY;
-  let initialX;
-  let initialY;
-  
   dragHandle.addEventListener('mousedown', handleDrag);
 
   function handleDrag(e) {
     e.preventDefault();
-    initialX = e.clientX - xOffset;
-    initialY = e.clientY - yOffset;
+    let originalTop     = element.getBoundingClientRect().top;
+    let originalLeft    = element.getBoundingClientRect().left;
+    xOffset = e.clientX - originalLeft;
+    yOffset = e.clientY - originalTop;
     window.addEventListener('mousemove', drag);
     window.addEventListener('mouseup', stopDrag);
+    console.log(originalLeft, xOffset);
   }
   
   function drag(e) {
-    currentX  = e.clientX - initialX;
-    currentY  = e.clientY - initialY;
-    xOffset   = currentX;
-    yOffset   = currentY;
-    element.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    newLeft  = e.clientX - xOffset;
+    newTop  = e.clientY - yOffset;
+    element.style.left = newLeft;
+    element.style.top = newTop;
   }
   
   function stopDrag() {

@@ -61,7 +61,7 @@ function makeResizable(element) {
   function resizeTop(e) {
     let height = originalHeight + (originalTop - e.pageY)
     if(height > minHeight) {
-      element.style.top = e.pageY - 56.4;
+      element.style.top = e.pageY;
       element.style.height = height;
     }
   }
@@ -76,7 +76,7 @@ function makeResizable(element) {
   function resizeLeft(e) {
     let width = originalWidth + (originalLeft - e.pageX);
     if(width > minWidth) {
-      element.style.left = e.pageX - 30;
+      element.style.left = e.pageX;
       element.style.width = width;
     }
   }
@@ -92,11 +92,11 @@ function makeResizable(element) {
     let height = originalHeight + (originalTop - e.pageY);
     let width = originalWidth + (originalLeft - e.pageX);
     if(height > minHeight) {
-      element.style.top = e.pageY - 55;
+      element.style.top = e.pageY;
       element.style.height = height;
     }
     if(width > minWidth) {
-      element.style.left = e.pageX - 30;
+      element.style.left = e.pageX;
       element.style.width = width;
     }
   }
@@ -105,7 +105,7 @@ function makeResizable(element) {
     let height = originalHeight + (originalTop - e.pageY);
     let width = e.pageX - originalLeft;
     if(height > minHeight) {
-      element.style.top = e.pageY - 55;
+      element.style.top = e.pageY;
       element.style.height = height;
     }
     if(width > minWidth) {
@@ -120,7 +120,7 @@ function makeResizable(element) {
       element.style.height = e.pageY - originalTop;
     }
     if(width > minWidth) {
-      element.style.left = e.pageX - 30;
+      element.style.left = e.pageX;
       element.style.width = originalWidth + (originalLeft - e.pageX);
     }
   }
